@@ -30,12 +30,16 @@ export function clue(word: string, target: string): CluedLetter[] {
   });
 }
 
-export function clueClass(clue: Clue): string {
+export function getClue(clue: Clue): string {
   if (clue === Clue.Absent) {
-    return "letter-absent";
-  } else if (clue === Clue.Elsewhere) {
-    return "letter-elsewhere";
-  } else {
-    return "letter-correct";
+    return 'absent';
   }
+  if (clue === Clue.Elsewhere) {
+    return 'elsewhere';
+  }
+  return 'correct';
+}
+
+export function clueClass(clue: Clue): string {
+  return `letter-${getClue(clue)}`;
 }

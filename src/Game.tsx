@@ -121,7 +121,7 @@ function Game(props: GameProps) {
     });
 
   return (
-    <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
+    <div className="Game" style={{ display: props.hidden ? "none" : "flex" }}>
       <div className="Game-options">
         <label htmlFor="wordLength">Letters:</label>
         <input
@@ -152,9 +152,9 @@ function Game(props: GameProps) {
           Give up
         </button>
       </div>
-      {rowDivs}
-      <p>{hint || `\u00a0`}</p>
       <Keyboard letterInfo={letterInfo} onKey={onKey} />
+      {rowDivs}
+      <p aria-live={'polite'}>{hint || `\u00a0`}</p>
     </div>
   );
 }

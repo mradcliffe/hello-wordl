@@ -1,4 +1,4 @@
-import { Clue, clueClass, CluedLetter } from "./clue";
+import { Clue, clueClass, CluedLetter, getClue } from "./clue";
 
 export enum RowState {
   LockedIn,
@@ -18,12 +18,15 @@ export function Row(props: RowProps) {
     .slice(0, props.wordLength)
     .map(({ clue, letter }, i) => {
       let letterClass = "Row-letter";
+      let clueText = "";
       if (isLockedIn && clue !== undefined) {
+        clueText = getClue(clue);
         letterClass += " " + clueClass(clue);
       }
+
       return (
         <div key={i} className={letterClass}>
-          {letter}
+          {letter} {clueText.length > 0 && (<span className="visually-hidden">is {clueText}</span>)}
         </div>
       );
     });

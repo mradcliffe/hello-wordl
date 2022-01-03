@@ -26,16 +26,17 @@ export function Keyboard(props: KeyboardProps) {
               className += " Game-keyboard-button-wide";
             }
             return (
-              <div
-                tabIndex={-1}
+              <button
+                tabIndex={0}
                 key={j}
+                type={'button'}
                 className={className}
                 onClick={() => {
                   props.onKey(label);
                 }}
               >
                 {label.replace("Backspace", "⌫")}
-              </div>
+              </button>
             );
           })}
         </div>

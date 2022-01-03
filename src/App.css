@@ -25,6 +25,17 @@ body {
   font-weight: bold;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .App-container {
   position: relative;
   max-width: 500px;
@@ -47,6 +58,7 @@ body {
 .Game-keyboard {
   display: flex;
   flex-direction: column;
+  order: 5;
 }
 
 .Game-keyboard-row {
@@ -77,26 +89,22 @@ body {
   flex: 2;
 }
 
-.Game-keyboard-button:focus {
-  outline: none;
-}
-
 .letter-correct {
   border: 2px solid rgba(0, 0, 0, 0.3);
   background-color: rgb(87, 172, 87);
-  color: white;
+  color: black;
 }
 
 .letter-elsewhere {
   border: 2px dotted rgba(0, 0, 0, 0.3);
   background-color: #e9c601;
-  color: white;
+  color: black;
 }
 
 .letter-absent {
   border: 2px solid transparent;
   background-color: rgb(162, 162, 162);
-  color: white;
+  color: black
 }
 
 @media (prefers-color-scheme: dark) {
@@ -132,11 +140,11 @@ body {
 
 a,
 a:visited {
-  color: #8080ff;
+  color: #5252ff;
 }
 
 a:active {
-  color: #cc77ff;
+  color: #a200ff;
 }
 
 .Game-options {
